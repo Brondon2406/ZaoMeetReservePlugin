@@ -107,6 +107,23 @@
 	  </templates>
   </types>
  -->
+ <types>
+	  <type name="Reservation">
+	  </type>
+	  <type name="Room">
+	  </type>
+	<!--  <templates type="AbstractPortletSkinable">
+	    <template name="custom" file="doAbstractPortletSkinableFullDisplay.jsp" dir="type" usage='full'>
+	      <label xml:lang="en">Custom Template</label>
+	      <label xml:lang="fr">Gabarit Spécifique</label>
+	    </template>
+	    <template name="custom" file="doAbstractPortletSkinableResultDisplay.jsp" usage='query'>
+	      <label xml:lang="en">Custom Template</label>
+	      <label xml:lang="fr">Gabarit Spécifique</label>
+	    </template>
+	  </templates>
+	  -->
+  </types>
   <!-- ============================== Workflows =========================== -->
   <!--                                                                      -->
   <!-- workflows         A list of <dependency>.                            -->

@@ -1,3 +1,13 @@
+# ----------------------------------------------------------------------
+# Plugin configuration : Groups
+# ----------------------------------------------------------------------
+jcmsplugin.zaomeetreserve.employee.group: Groupes des employees
+jcmsplugin.zaomeetreserve.employee.group.help: Groupes qui contient tous les employees d'une structure ( entreprise )
+jcmsplugin.zaomeetreserve.manager.group: Groupes des Managers
+jcmsplugin.zaomeetreserve.manager.group.help: Groupes qui contient tous les manages de salle de reunion d'une structure ( entreprise )
+jcmsplugin.zaomeetreserve.technical-director.group: Groupes des Directeurs Techniques
+jcmsplugin.zaomeetreserve.technical-director.group.help: Groupes qui contient tous les DT ( Directeurs techniques ) d'une structure ( entreprise )
+
 data.$id.shortcut.jcmsplugin.zaomeetreserve.title: ZaoMeetReserve
 data.$id.shortcut.jcmsplugin.zaomeetreserve.text: Répertoire des réservations des salles.
 
@@ -15,3 +25,9 @@ jcmsplugin.zaomeetreserve.app.sidebar.all-rooms.label: Toutes les salles
 jcmsplugin.zaomeetreserve.app.sidebar.to-validate.label: Mes réservations à valider
 jcmsplugin.zaomeetreserve.app.sidebar.dashboard.label: Dashboard
 jcmsplugin.zaomeetreserve.app.sidebar.admin.label: Administration
+
+# ----------------------------------------------------------------------
+# Reservation Messages
+# ----------------------------------------------------------------------
+jcmsplugin.zaomeetreserve.reservation.field.room-id.message: Le champ de selection de la salle de reunion est requis
+jcmsplugin.zaomeetreserve.reservation.create.message: Une erreur est survenu durant la creation de votre reservation. veuillez essayer a nouveau

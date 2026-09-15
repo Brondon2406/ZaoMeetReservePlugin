@@ -1,8 +1,8 @@
-<%@page import="co.kozao.jcmsplugin.zaomeetreserve.util.BookingAppUtils"%> 
+<%@page import="co.kozao.jcmsplugin.zaomeetreserve.util."%> 
 <%@ page import="com.jalios.jcms.uicomponent.app.*" %>
 <%@ page import="com.jalios.jcms.uicomponent.app.*" %><%
 %><%@ include file="/front/app/doAppCommon.jspf" %><%
-%><jsp:useBean id="appHandler" scope="page" class="co.kozao.jcmsplugin.zaomeetreserve.handler.app.BookingAppHandler"><%
+%><jsp:useBean id="appHandler" scope="page" class="co.kozao.jcmsplugin.zaomeetreserve.handler.app.ZaoMeetReserveAppHandler"><%
 %><jsp:setProperty name="appHandler" property="request"       value="<%= request %>"/><%
 %><jsp:setProperty name="appHandler" property="response"      value="<%= response %>"/><%
 %><jsp:setProperty name="appHandler" property="*" /><%
@@ -32,11 +32,11 @@ jcmsContext.addJavaScript("plugins/ZaoMeetReservePlugin/js/advancedSearchView.js
   <jalios:app name="booking" collapsedSidebar="false" collapsableSidebar="true">
 
     <%-- SIDEBAR --%>
-	<%@ include file='/plugins/ZaoMeetReservePlugin/jsp/app/doBookingAppSidebar.jspf'%>
+	<%@ include file='/plugins/ZaoMeetReservePlugin/jsp/app/doZaoMeetReserveAppSidebar.jspf'%>
 
    <%-- MAIN --%>
 	<jalios:appMain headerTitle="<%= appHandler.getAppTitle() %>"  >
-		<%@ include file='/plugins/ZaoMeetReservePlugin/jsp/app/doBookingAppBody.jspf'%>
+		<%@ include file='/plugins/ZaoMeetReservePlugin/jsp/app/doZaoMeetReserveAppBody.jspf'%>
 	</jalios:appMain>
   </jalios:app>
 

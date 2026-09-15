@@ -12,7 +12,7 @@
     <div class="app-sidebar-button">
         <a href="" class="btn btn-default app-sidebar-button"
            data-jalios-action="modal"
-           data-jalios-modal-url="plugins/ZaoMeetReservePlugin/jsp/modales/reservation/add/doModalAddReservation.jsp">
+           data-jalios-modal-url="plugins/ZaoMeetReservePlugin/jsp/modales/reservation/addReservationModal.jsp">
             <jalios:icon src="glyph: icomoon-plus3" />
             <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.btn.add-reservation.label") %>
         </a>

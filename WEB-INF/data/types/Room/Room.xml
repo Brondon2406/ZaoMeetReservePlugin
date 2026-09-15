@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<type name="Room" superclass="com.jalios.jcms.Content" debatable="false" unitFieldEdition="true" audienced="false" categoryTab="true" readRightTab="true" updateRightTab="true" templateTab="false" workflowTab="false" advancedTab="true" database="true" hbm="true" revision="true" categories="">
+  <title ml="true">
+    <label xml:lang="en">Title</label>
+    <label xml:lang="fr">Titre</label>
+  </title>
+  <fields>
+    <field name="capacite" editor="int" required="false" type="int" default="0" ml="false" searchable="false" html="false" checkHtml="true" unitPos="after">
+      <label xml:lang="en">Capacity</label>
+      <label xml:lang="fr">Capacité</label>
+    </field>
+    <field name="localisation" editor="textfield" required="false" type="String" searchable="true" size="80" ml="true" html="false" checkHtml="true">
+      <label xml:lang="en">Location</label>
+      <label xml:lang="fr">Localisation</label>
+    </field>
+    <field name="equipements" editor="textfield" required="false" type="String" searchable="true" size="200" ml="true" html="false" checkHtml="true">
+      <label xml:lang="en">Equipments</label>
+      <label xml:lang="fr">Équipements</label>
+    </field>
+    <field name="photo" editor="media" required="false" type="String" ml="true" html="false" checkHtml="true">
+      <label xml:lang="en">Photo</label>
+      <label xml:lang="fr">Photo</label>
+    </field>
+  </fields>
+  <label xml:lang="en">Room</label>
+  <label xml:lang="fr">Salle</label>
+</type>

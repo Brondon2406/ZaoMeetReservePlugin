@@ -15,10 +15,10 @@
 # ui.editportlet.usage.skin.{jcmsplugin.plugin.sample}: Usage label for skin
 
 # LESS
-channel.less.plugins/{Name}/css/plugin.css:    plugins/{Name}/css/plugin.less
+# channel.less.plugins/{Name}/css/plugin.css:    plugins/{Name}/css/plugin.less
 
 shortcut.jcmsplugin.zaomeetreserve.icon: plugins/ZaoMeetReservePlugin/images/zaomeetreserve-icon-full.png
-shortcut.jcmsplugin.zaomeetreserve.link: plugins/ZaoMeetReservePlugin/jsp/app/bookingApp.jsp
+shortcut.jcmsplugin.zaomeetreserve.link: plugins/ZaoMeetReservePlugin/jsp/app/zaoMeetReserveApp.jsp
 
 #Icon
 icon.jcmsplugin-zaomeetreserve-app: glyph: icomoon-wrench
@@ -31,3 +31,10 @@ icon.jcmsplugin-zaomeetreserve-app: icon: log-icon
 
 # LESS
 channel.less.plugins/ZaoMeetReservePlugin/css/app-booking.css: plugins/ZaoMeetReservePlugin/css/app-booking.less
+
+# ----------------------------------------------------------------------
+# Plugin configuration : Groups
+# ----------------------------------------------------------------------
+jcmsplugin.zaomeetreserve.employee.group:
+jcmsplugin.zaomeetreserve.manager.group:
+jcmsplugin.zaomeetreserve.technical-director.group:

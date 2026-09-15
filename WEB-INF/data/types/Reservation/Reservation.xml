@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<type name="Reservation" superclass="com.jalios.jcms.Content" debatable="false" unitFieldEdition="true" audienced="false" categoryTab="true" readRightTab="true" updateRightTab="true" templateTab="false" workflowTab="true" advancedTab="true" database="true" hbm="true" revision="true" categories="">
+  <title ml="true">
+    <label xml:lang="en">Title</label>
+    <label xml:lang="fr">Titre</label>
+  </title>
+  <fields>
+    <field name="salle" editor="link" required="false" type="generated.Room" parent="false" ml="false" html="false" checkHtml="true">
+      <label xml:lang="en">Room</label>
+      <label xml:lang="fr">Salle</label>
+    </field>
+    <field name="startDate" editor="date" required="false" type="java.util.Date" future="true" past="true" dateOnly="false" dateFormat="short" ml="false" html="false" checkHtml="true">
+      <label xml:lang="en">StartDate/StartHour</label>
+      <label xml:lang="fr">Date/heure de début</label>
+    </field>
+    <field name="endDate" editor="date" required="false" type="java.util.Date" future="true" past="true" dateOnly="false" dateFormat="short" ml="false" html="false" checkHtml="true">
+      <label xml:lang="en">EndDate/EndHour</label>
+      <label xml:lang="fr">Date/heure de fin</label>
+    </field>
+    <field name="recurrente" editor="checkbox" required="false" type="boolean" default="false" ml="false" html="false" checkHtml="true">
+      <label xml:lang="en">Recurring reservation</label>
+      <label xml:lang="fr">Réservation récurrente</label>
+    </field>
+    <field name="checkinEffectue" editor="checkbox" required="false" type="boolean" default="false" ml="false" html="false" checkHtml="true">
+      <label xml:lang="en">Checked in</label>
+      <label xml:lang="fr">Check-in effectué</label>
+    </field>
+    <field name="motif" editor="wysiwyg" required="false" type="String" searchable="true" rows="10" cols="100" ml="true" checkHtml="true" inline="true" html="false">
+      <label xml:lang="en">Motif</label>
+      <label xml:lang="fr">Motif</label>
+    </field>
+  </fields>
+  <label xml:lang="en">Reservation</label>
+  <label xml:lang="fr">Réservation</label>
+  <workflow>true</workflow>
+</type>
