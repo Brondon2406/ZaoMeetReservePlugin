@@ -1,0 +1,4 @@
+<%
+request.setAttribute("jcmsplugin.zaomeetreserve.appHandler", appHandler);
+%>
+

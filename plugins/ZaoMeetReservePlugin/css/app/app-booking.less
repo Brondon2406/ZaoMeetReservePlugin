@@ -1,0 +1,21 @@
+@import "../../../../css/jalios/core/init-mixins.less";
+@import "../../../../css/jalios/core/app/jalios-app-variables.less";
+
+// Hook for JCMS
+@import "../../../../css/plugin.less";
+
+
+@app-color-pooling: #1E9BE0;
+.app-theme-from-color(booking, @app-color-booking);
+
+.app-booking {
+    .app-sidebar {
+        .app-sidebar-section {
+            .app-sidebar-menu {
+                li.active {
+                    background-color: @app-color-meetreserve !important;
+                }
+            }
+        }
+    }
+}

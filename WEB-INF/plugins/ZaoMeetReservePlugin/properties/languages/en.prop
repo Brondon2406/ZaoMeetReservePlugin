@@ -1,0 +1,17 @@
+data.$id.shortcut.jcmsplugin.zaomeetreserve.title: ZaoMeetReserve
+data.$id.shortcut.jcmsplugin.zaomeetreserve.text: Room Reservation Directory
+
+jcmsplugin.jbook.app.catalog.title: Bookable rooms.
+
+jcmsplugin.zaomeetreserve.app.name: Room booking
+jcmsplugin.zaomeetreserve.app.title: Room booking
+
+jcmsplugin.zaomeetreserve.app.sidebar.btn.add-reservation.label: New reservation
+
+jcmsplugin.zaomeetreserve.app.sidebar.my-reservations.label: My reservations
+jcmsplugin.zaomeetreserve.app.sidebar.all-reservations.label: All reservations
+jcmsplugin.zaomeetreserve.app.sidebar.calendar.label: Calendar
+jcmsplugin.zaomeetreserve.app.sidebar.all-rooms.label: All rooms
+jcmsplugin.zaomeetreserve.app.sidebar.to-validate.label: Reservations to validate
+jcmsplugin.zaomeetreserve.app.sidebar.dashboard.label: Dashboard
+jcmsplugin.zaomeetreserve.app.sidebar.admin.label: Administration

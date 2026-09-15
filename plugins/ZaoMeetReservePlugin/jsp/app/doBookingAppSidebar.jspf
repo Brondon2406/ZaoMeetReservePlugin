@@ -1,0 +1,80 @@
+<%@page import="co.kozao.jcmsplugin.zaomeetreserve.util.BookingAppUtils"%>
+<%
+    boolean canManage = BookingAppUtils.canManage(loggedMember, workspace);
+    boolean isModuleAdmin = BookingAppUtils.isModuleAdmin(loggedMember, workspace);
+%>
+<jalios:appSidebar css="no-focus" icon="shortcut.jcmsplugin.zaomeetreserve.icon"
+                    appUrl="<%= appUrl %>" formAction="<%= appUrl %>"
+                    iconTitleProp="jcmsplugin.zaomeetreserve.app.title">
+
+	<div class="app-name">Zao<span class="app-name-accent">MeetReserve</span></div>
+
+    <div class="app-sidebar-button">
+        <a href="" class="btn btn-default app-sidebar-button"
+           data-jalios-action="modal"
+           data-jalios-modal-url="plugins/ZaoMeetReservePlugin/jsp/modales/reservation/add/doModalAddReservation.jsp">
+            <jalios:icon src="glyph: icomoon-plus3" />
+            <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.btn.add-reservation.label") %>
+        </a>
+    </div>
+
+    <jalios:appSidebarSection name="view" title="">
+        <ul class="app-sidebar-menu">
+
+            <li class="sidebar-item <%= appHandler.showMyReservationsView() ? " active is-checked" : "" %>">
+                <a href="<%= appHandler.getViewUrl("MY_RESERVATIONS") %>" data-jalios-action="ajax-refresh">
+                	<jalios:icon src="glyph: icomoon-calendar2" />
+                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.my-reservations.label").toUpperCase() %>
+                </a>
+            </li>
+
+            <% if (canManage) { %>
+            <li class="sidebar-item <%= appHandler.showAllReservationsView() ? " active is-checked" : "" %>">
+                <a href="<%= appHandler.getViewUrl("ALL_RESERVATIONS") %>" data-jalios-action="ajax-refresh">
+                    <jalios:icon src="icon: log-icon" /> 
+                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.all-reservations.label").toUpperCase() %>
+                </a>
+            </li>
+            <% } %>
+
+            <li class="sidebar-item <%= appHandler.showCalendarView() ? " active is-checked" : "" %>">
+                <a href="<%= appHandler.getViewUrl("CALENDAR") %>" data-jalios-action="ajax-refresh">
+                    <jalios:icon src="glyph: icomoon-calendar" /> 
+                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.calendar.label").toUpperCase() %>
+                </a>
+            </li>
+
+            <li class="sidebar-item <%= appHandler.showAllRoomsView() ? " active is-checked" : "" %>">
+                <a href="<%= appHandler.getViewUrl("ALL_ROOMS") %>" data-jalios-action="ajax-refresh">
+                    <jalios:icon src="icon: portal" /> 
+                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.all-rooms.label").toUpperCase() %>
+                </a>
+            </li>
+
+            <% if (canManage) { %>
+            <li class="sidebar-item <%= appHandler.showToValidateView() ? " active is-checked" : "" %>">
+                <a href="<%= appHandler.getViewUrl("TO_VALIDATE") %>" data-jalios-action="ajax-refresh">
+                    <jalios:icon src="glyph: icomoon-checkmark" /> &nbsp;&nbsp;&nbsp;
+                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.to-validate.label").toUpperCase() %>
+                </a>
+            </li>
+
+            <li class="sidebar-item <%= appHandler.showDashboardView() ? " active is-checked" : "" %>">
+                <a href="<%= appHandler.getViewUrl("DASHBOARD") %>" data-jalios-action="ajax-refresh">
+                    <jalios:icon src="icon: analytics" /> &nbsp;&nbsp;&nbsp;
+                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.dashboard.label").toUpperCase() %>
+                </a>
+            </li>
+            <% } %>
+
+            <% if (isModuleAdmin) { %>
+            <li class="sidebar-item <%= appHandler.showAdminView() || appHandler.showAdminRoomsView() || appHandler.showAdminConfigView() ? " active is-checked" : "" %>">
+                <a href="<%= appHandler.getViewUrl("ADMIN") %>" data-jalios-action="ajax-refresh">
+                    <jalios:icon src="glyph: icomoon-wrench" /> 
+                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.admin.label").toUpperCase() %>
+                </a>
+            </li>
+            <% } %>
+        </ul>
+    </jalios:appSidebarSection>
+</jalios:appSidebar>

@@ -1,0 +1,11 @@
+<%@page import="co.kozao.jcmsplugin.zaomeetreserve.manager.BookingAppManager"%>
+<%@page import="generated.Reservation"%>
+<%@page import="java.util.List"%>
+<%
+List<Reservation> myReservations = BookingAppManager.getInstance().getReservationsByMember(loggedMember);
+
+request.setAttribute("jcmsplugin.zaomeetreserve.appHandler", appHandler);
+request.setAttribute("jcmsplugin.zaomeetreserve.listReservations", myReservations);
+request.setAttribute("jcmsplugin.zaomeetreserve.reservation.comeFrom", "app");
+%>
+

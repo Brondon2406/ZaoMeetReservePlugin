@@ -1,0 +1,9 @@
+<%@page import="co.kozao.jcmsplugin.zaomeetreserve.manager.BookingAppManager"%>
+<%
+int totalReservations = BookingAppManager.getInstance().getAllReservations().size();
+int totalRooms = BookingAppManager.getInstance().getAllRooms().size();
+
+request.setAttribute("jcmsplugin.zaomeetreserve.appHandler", appHandler);
+%>
+
+s

@@ -1,0 +1,45 @@
+<%@page import="co.kozao.jcmsplugin.zaomeetreserve.util.BookingAppUtils"%> 
+<%@ page import="com.jalios.jcms.uicomponent.app.*" %>
+<%@ page import="com.jalios.jcms.uicomponent.app.*" %><%
+%><%@ include file="/front/app/doAppCommon.jspf" %><%
+%><jsp:useBean id="appHandler" scope="page" class="co.kozao.jcmsplugin.zaomeetreserve.handler.app.BookingAppHandler"><%
+%><jsp:setProperty name="appHandler" property="request"       value="<%= request %>"/><%
+%><jsp:setProperty name="appHandler" property="response"      value="<%= response %>"/><%
+%><jsp:setProperty name="appHandler" property="*" /><%
+%></jsp:useBean><%
+
+if (appHandler.validate()) {
+  return;
+}
+
+String appUrl = appHandler.getAppUrl();
+
+jcmsContext.setPageTitle(glp("jcmsplugin.zaomeetreserve.app.title"));
+jcmsContext.addCSSHeader("css/jalios/core/components/sidebar/jalios-sidebar.css");
+jcmsContext.addJavaScript("js/jalios/core/components/jalios-sidebar.js");
+jcmsContext.addCSSHeader("plugins/ZaoMeetReservePlugin/css/app/app-booking.css");
+
+jcmsContext.addJavaScript("js/jalios/core/components/jalios-loading-circle.js");
+jcmsContext.addCSSHeader("css/jalios/core/components/loading/jalios-loading-circle.css");
+
+jcmsContext.addJavaScript("plugins/ZaoMeetReservePlugin/js/displayingFilterRoute.js");
+jcmsContext.addCSSHeader("plugins/ZaoMeetReservePlugin/css/app/search-view.css");
+jcmsContext.addJavaScript("plugins/ZaoMeetReservePlugin/js/advancedSearchView.js");
+%>
+
+<%@ include file='/jcore/doHeader.jspf' %>
+
+  <jalios:app name="booking" collapsedSidebar="false" collapsableSidebar="true">
+
+    <%-- SIDEBAR --%>
+	<%@ include file='/plugins/ZaoMeetReservePlugin/jsp/app/doBookingAppSidebar.jspf'%>
+
+   <%-- MAIN --%>
+	<jalios:appMain headerTitle="<%= appHandler.getAppTitle() %>"  >
+		<%@ include file='/plugins/ZaoMeetReservePlugin/jsp/app/doBookingAppBody.jspf'%>
+	</jalios:appMain>
+  </jalios:app>
+
+<%@ include file='/jcore/doAjaxFooter.jspf' %>
+
+
