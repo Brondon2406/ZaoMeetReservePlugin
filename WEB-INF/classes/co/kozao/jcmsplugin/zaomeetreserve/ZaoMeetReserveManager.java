@@ -10,7 +10,6 @@ import com.jalios.jcms.Member;
 import com.jalios.jcms.db.HibernateUtil;
 import com.jalios.util.Util;
 
-import edu.emory.mathcs.backport.java.util.Collections;
 import generated.Reservation;
 import generated.Room;
 
@@ -48,22 +47,22 @@ public class ZaoMeetReserveManager {
 
 	public List<Reservation> getReservationsByMember(Member member) {
 		if (Util.isEmpty(member))
-			return Collections.emptyList();
+			return java.util.Collections.emptyList();
 
 		List<Reservation> reservations = HibernateUtil.query(Reservation.class);
 		return Util.notEmpty(reservations)
 				? reservations.stream().filter(reservation -> reservation.getAuthor().equals(member)).toList()
-				: Collections.emptyList();
+				: java.util.Collections.emptyList();
 	}
 
 	public List<Reservation> getAllReservations() {
 		List<Reservation> reservations = HibernateUtil.query(Reservation.class);
-		return Util.notEmpty(reservations) ? reservations : Collections.emptyList();
+		return Util.notEmpty(reservations) ? reservations : java.util.Collections.emptyList();
 	}
 
 	public List<Room> getAllRooms() {
 		List<Room> rooms = HibernateUtil.query(Room.class);
-		return Util.notEmpty(rooms) ? rooms : Collections.emptyList();
+		return Util.notEmpty(rooms) ? rooms : java.util.Collections.emptyList();
 	}
 
 	public boolean save(Reservation reservation, Member member) {

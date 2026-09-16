@@ -31,3 +31,31 @@ jcmsplugin.zaomeetreserve.app.sidebar.admin.label: Administration
 # ----------------------------------------------------------------------
 jcmsplugin.zaomeetreserve.reservation.field.room-id.message: Le champ de selection de la salle de reunion est requis
 jcmsplugin.zaomeetreserve.reservation.create.message: Une erreur est survenu durant la creation de votre reservation. veuillez essayer a nouveau
+
+# ----------------------------------------------------------------------
+# Modal Nouvelle Reservation
+# ----------------------------------------------------------------------
+jcmsplugin.zaomeetreserve.modal.add-reservation.title : Nouvelle réservation
+jcmsplugin.zaomeetreserve.modal.update-reservation.title : Modifier la réservation
+jcmsplugin.zaomeetreserve.modal.create-reservation.btn.title : Créer
+jcmsplugin.zaomeetreserve.modal.update-reservation.btn.title : Enregistrer
+jcmsplugin.zaomeetreserve.modal.add-reservation.step-modal.step0 : Informations
+jcmsplugin.zaomeetreserve.modal.add-reservation.step-modal.step1 : Avancé
+jcmsplugin.zaomeetreserve.modal.add-reservation.field.title : Titre
+jcmsplugin.zaomeetreserve.modal.add-reservation.field.room : Salle
+jcmsplugin.zaomeetreserve.modal.add-reservation.field.start-date : Date de début
+jcmsplugin.zaomeetreserve.modal.add-reservation.field.end-date : Date de fin
+jcmsplugin.zaomeetreserve.modal.add-reservation.field.motif : Motif
+jcmsplugin.zaomeetreserve.modal.add-reservation.field.recurring : Réservation récurrente
+jcmsplugin.zaomeetreserve.modal.add-reservation.field.checkin : Check-in effectué
+jcmsplugin.zaomeetreserve.modal.add-reservation.error.room-conflict : La salle sélectionnée est déjà réservée sur ce créneau.
+jcmsplugin.zaomeetreserve.app.sidebar.btn.add-reservation.label : Nouvelle réservation
+jcmsplugin.zaomeetreserve.modal.add-reservation.error.title-required : Le titre est obligatoire.
+jcmsplugin.zaomeetreserve.modal.add-reservation.error.start-date-invalid : Le format de la date de début n'est pas reconnu. Veuillez utiliser le sélecteur de date.
+jcmsplugin.zaomeetreserve.modal.add-reservation.error.end-date-invalid : Le format de la date de fin n'est pas reconnu. Veuillez utiliser le sélecteur de date.
+
+# ----------------------------------------------------------------------
+# La vue : Mes reservations
+# ----------------------------------------------------------------------
+jcmsplugin.zaomeetreserve.view.my-reservations.empty : Vous n'avez aucune réservation.
+

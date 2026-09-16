@@ -1,8 +1,8 @@
-<%@page import="co.kozao.jcmsplugin.zaomeetreserve.manager.BookingAppManager"%>
+<%@page import="co.kozao.jcmsplugin.zaomeetreserve.ZaoMeetReserveManager"%>
 <%@page import="generated.Room"%>
 <%@page import="java.util.List"%>
 <%
-List<Room> allRooms = BookingAppManager.getInstance().getAllRooms();
+List<Room> allRooms = ZaoMeetReserveManager.getInstance().getAllRooms();
 
 request.setAttribute("jcmsplugin.zaomeetreserve.appHandler", appHandler);
 request.setAttribute("jcmsplugin.zaomeetreserve.listRooms", allRooms);

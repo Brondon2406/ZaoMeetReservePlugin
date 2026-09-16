@@ -1,80 +1,92 @@
-<%@page import="co.kozao.jcmsplugin.zaomeetreserve.util.BookingAppUtils"%>
+<%@page import="co.kozao.jcmsplugin.zaomeetreserve.util.ZaoMeetReserveUtils"%>
 <%
-    boolean canManage = BookingAppUtils.canManage(loggedMember, workspace);
-    boolean isModuleAdmin = BookingAppUtils.isModuleAdmin(loggedMember, workspace);
+    boolean canManage = true;
+    boolean isModuleAdmin = true;
+    String zaoReservationView = appHandler.getBoxDisplayFilter();
 %>
+
+<jalios:field resource="field-app">
+   	<jalios:control settings='<%= new HiddenSettings().name("boxDisplayFilter").value(zaoReservationView) %>' />
+</jalios:field>
+
 <jalios:appSidebar css="no-focus" icon="shortcut.jcmsplugin.zaomeetreserve.icon"
                     appUrl="<%= appUrl %>" formAction="<%= appUrl %>"
                     iconTitleProp="jcmsplugin.zaomeetreserve.app.title">
 
 	<div class="app-name">Zao<span class="app-name-accent">MeetReserve</span></div>
 
-    <div class="app-sidebar-button">
-        <a href="" class="btn btn-default app-sidebar-button"
-           data-jalios-action="modal"
-           data-jalios-modal-url="plugins/ZaoMeetReservePlugin/jsp/modales/reservation/addReservationModal.jsp">
-            <jalios:icon src="glyph: icomoon-plus3" />
-            <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.btn.add-reservation.label") %>
-        </a>
-    </div>
+	<jalios:appSidebarSection name="views" title="">
+	    <div class="app-sidebar-button">
+	        <a href="" class="btn btn-default app-sidebar-button"
+	           data-jalios-action="modal"
+	           data-jalios-modal-url="plugins/ZaoMeetReservePlugin/jsp/modales/reservation/addReservationModal.jsp">
+	            <jalios:icon src="glyph: icomoon-plus3" />
+	            <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.btn.add-reservation.label") %>
+	        </a>
+	    </div>
+	</jalios:appSidebarSection>
 
-    <jalios:appSidebarSection name="view" title="">
+    <jalios:appSidebarSection name="views" title="">
         <ul class="app-sidebar-menu">
 
-            <li class="sidebar-item <%= appHandler.showMyReservationsView() ? " active is-checked" : "" %>">
-                <a href="<%= appHandler.getViewUrl("MY_RESERVATIONS") %>" data-jalios-action="ajax-refresh">
-                	<jalios:icon src="glyph: icomoon-calendar2" />
-                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.my-reservations.label").toUpperCase() %>
+            <li class="sidebar-item-search <%= appHandler.showMyReservationsView() ? "active is-checked" : "" %>">
+                <a href="<%= appHandler.getMyReservationsUrl() %>" data-jalios-action="ajax-refresh">
+                	<jalios:icon src="glyph: icomoon-calendar2" />&nbsp;&nbsp;&nbsp;
+                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.my-reservations.label") %>
                 </a>
             </li>
 
             <% if (canManage) { %>
-            <li class="sidebar-item <%= appHandler.showAllReservationsView() ? " active is-checked" : "" %>">
-                <a href="<%= appHandler.getViewUrl("ALL_RESERVATIONS") %>" data-jalios-action="ajax-refresh">
-                    <jalios:icon src="icon: log-icon" /> 
-                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.all-reservations.label").toUpperCase() %>
+            <li class="sidebar-item-search <%= appHandler.showAllReservationsView() ? "active is-checked" : "" %>">
+                <a href="<%= appHandler.getAllReservationsUrl() %>" data-jalios-action="ajax-refresh">
+                    <jalios:icon src="icon: log-icon" />&nbsp;&nbsp;&nbsp;
+                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.all-reservations.label") %>
                 </a>
             </li>
             <% } %>
 
-            <li class="sidebar-item <%= appHandler.showCalendarView() ? " active is-checked" : "" %>">
-                <a href="<%= appHandler.getViewUrl("CALENDAR") %>" data-jalios-action="ajax-refresh">
-                    <jalios:icon src="glyph: icomoon-calendar" /> 
-                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.calendar.label").toUpperCase() %>
+            <li class="sidebar-item-search <%= appHandler.showCalendarView() ? "active is-checked" : "" %>">
+                <a href="<%= appHandler.getCalendarUrl() %>" data-jalios-action="ajax-refresh">
+                    <jalios:icon src="glyph: icomoon-calendar" />&nbsp;&nbsp;&nbsp;
+                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.calendar.label") %>
                 </a>
             </li>
 
-            <li class="sidebar-item <%= appHandler.showAllRoomsView() ? " active is-checked" : "" %>">
-                <a href="<%= appHandler.getViewUrl("ALL_ROOMS") %>" data-jalios-action="ajax-refresh">
-                    <jalios:icon src="icon: portal" /> 
-                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.all-rooms.label").toUpperCase() %>
+            <li class="sidebar-item-search <%= appHandler.showAllRoomsView() ? "active is-checked" : "" %>">
+                <a href="<%= appHandler.getAllRoomsUrl() %>" data-jalios-action="ajax-refresh">
+                    <jalios:icon src="icon: portal" />&nbsp;&nbsp;&nbsp;
+                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.all-rooms.label") %>
                 </a>
             </li>
 
             <% if (canManage) { %>
-            <li class="sidebar-item <%= appHandler.showToValidateView() ? " active is-checked" : "" %>">
-                <a href="<%= appHandler.getViewUrl("TO_VALIDATE") %>" data-jalios-action="ajax-refresh">
-                    <jalios:icon src="glyph: icomoon-checkmark" /> &nbsp;&nbsp;&nbsp;
-                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.to-validate.label").toUpperCase() %>
+            <li class="sidebar-item-search <%= appHandler.showToValidateView() ? "active is-checked" : "" %>">
+                <a href="<%= appHandler.getToValidateUrl() %>" data-jalios-action="ajax-refresh">
+                    <jalios:icon src="glyph: icomoon-checkmark" />&nbsp;&nbsp;&nbsp;
+                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.to-validate.label") %>
                 </a>
             </li>
 
-            <li class="sidebar-item <%= appHandler.showDashboardView() ? " active is-checked" : "" %>">
-                <a href="<%= appHandler.getViewUrl("DASHBOARD") %>" data-jalios-action="ajax-refresh">
-                    <jalios:icon src="icon: analytics" /> &nbsp;&nbsp;&nbsp;
-                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.dashboard.label").toUpperCase() %>
-                </a>
-            </li>
-            <% } %>
-
-            <% if (isModuleAdmin) { %>
-            <li class="sidebar-item <%= appHandler.showAdminView() || appHandler.showAdminRoomsView() || appHandler.showAdminConfigView() ? " active is-checked" : "" %>">
-                <a href="<%= appHandler.getViewUrl("ADMIN") %>" data-jalios-action="ajax-refresh">
-                    <jalios:icon src="glyph: icomoon-wrench" /> 
-                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.admin.label").toUpperCase() %>
+            <li class="sidebar-item-search <%= appHandler.showDashboardView() ? "active is-checked" : "" %>">
+                <a href="<%= appHandler.getDashboardUrl() %>" data-jalios-action="ajax-refresh">
+                    <jalios:icon src="icon: analytics" />&nbsp;&nbsp;&nbsp;
+                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.dashboard.label") %>
                 </a>
             </li>
             <% } %>
         </ul>
     </jalios:appSidebarSection>
+
+    <% if (isModuleAdmin) { %>
+    <jalios:appSidebarSection name="views" title="">
+        <ul class="app-sidebar-menu">
+            <li class="sidebar-item-search <%= appHandler.showAdminView() || appHandler.showAdminRoomsView() || appHandler.showAdminConfigView() ? "active is-checked" : "" %>">
+                <a href="<%= appHandler.getAdminViewUrl() %>" data-jalios-action="ajax-refresh">
+                    <jalios:icon src="glyph: icomoon-wrench" />&nbsp;&nbsp;&nbsp;
+                    <%= glp("jcmsplugin.zaomeetreserve.app.sidebar.admin.label") %>
+                </a>
+            </li>
+        </ul>
+    </jalios:appSidebarSection>
+    <% } %>
 </jalios:appSidebar>
