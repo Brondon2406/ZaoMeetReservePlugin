@@ -1,0 +1,44 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="generated.Room"%>
+<%@page import="co.kozao.jcmsplugin.zaomeetreserve.ZaoMeetReserveManager"%>
+<%@page import="co.kozao.jcmsplugin.zaomeetreserve.ennum.RoomStatus"%>
+
+<%
+	// Salles réservables : on exclut seulement la maintenance
+	List<String> roomIds = new ArrayList<String>();
+	List<String> roomLabels = new ArrayList<String>();
+	roomIds.add("");
+	roomLabels.add("");
+	for (Room r : ZaoMeetReserveManager.getInstance().getAllRooms()) {
+		if (RoomStatus.fromRaw(r.getStatut()) == RoomStatus.MAINTENANCE) continue;
+		roomIds.add(r.getId());
+		roomLabels.add(r.getTitle());
+	}
+%>
+
+<jalios:field name="title"
+	label='<%= glp("jcmsplugin.zaomeetreserve.modal.add-reservation.field.title") %>'
+	value='<%= formHandler.getTitle() %>' required="true">
+	<jalios:control settings='<%= new TextFieldSettings() %>' />
+</jalios:field>
+
+<jalios:field name="roomId"
+	label='<%= glp("jcmsplugin.zaomeetreserve.modal.add-reservation.field.room") %>'
+	value='<%= formHandler.getRoomId() %>' required="true">
+	<jalios:control settings='<%= new EnumerateSettings().select()
+		.enumValues(roomIds.toArray(new String[0]))
+		.enumLabels(roomLabels.toArray(new String[0])) %>' />
+</jalios:field>
+
+<jalios:field name="startDateString"
+	label='<%= glp("jcmsplugin.zaomeetreserve.modal.add-reservation.field.start-date") %>'
+	value='<%= formHandler.getDateheureDebut() %>' required="true">
+	<jalios:control settings='<%= new DateSettings().displayTime() %>' />
+</jalios:field>
+
+<jalios:field name="endDateString"
+	label='<%= glp("jcmsplugin.zaomeetreserve.modal.add-reservation.field.end-date") %>'
+	value='<%= formHandler.getDateheureFin() %>' required="true">
+	<jalios:control settings='<%= new DateSettings().displayTime() %>' />
+</jalios:field>

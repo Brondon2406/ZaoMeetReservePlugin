@@ -1,0 +1,35 @@
+<jalios:field name="filterByStatus"
+	label='<%= glp("jcmsplugin.zaomeetreserve.app.view.my-reservations.filter.status") %>'
+	value='<%= appHandler.getFilterByStatus() %>'>
+	<jalios:control
+		settings='<%= new EnumerateSettings().select()
+                .enumValues(new String[]{"ALL","CONFIRMEE","RECURRENTE","PASSEE","CANCELLED"})
+                .enumLabels(new String[]{
+                    glp("jcmsplugin.zaomeetreserve.status.all"),
+                    glp("jcmsplugin.zaomeetreserve.status.confirmed"),
+                    glp("jcmsplugin.zaomeetreserve.status.recurring"),
+                    glp("jcmsplugin.zaomeetreserve.status.past")})
+                	glp("jcmsplugin.zaomeetreserve.status.cancelled")})
+                .onChaange("ajax-refresh") %>' />
+</jalios:field>
+
+<jalios:field name="dateStartStr"
+	label='<%= glp("jcmsplugin.zaomeetreserve.app.view.my-reservations.filter.date-start") %>'
+	value='<%= appHandler.getDateStartStr() %>'>
+	<jalios:control
+		settings='<%= new DateSettings().onChange("ajax-refresh") %>' />
+</jalios:field>
+
+<jalios:field name="dateEndStr"
+	label='<%= glp("jcmsplugin.zaomeetreserve.app.view.my-reservations.filter.date-end") %>'
+	value='<%= appHandler.getDateEndStr() %>'>
+	<jalios:control
+		settings='<%= new DateSettings().onChange("ajax-refresh") %>' />
+</jalios:field>
+
+<jalios:field name="searchTerm"
+	label='<%= glp("ui.com.placeholder.search") %>'
+	value='<%= appHandler.getSearchTerm() %>' css="search-box">
+	<jalios:control
+		settings='<%= new TextFieldSettings().placeholder("ui.com.placeholder.search").onChange("ajax-refresh") %>' />
+</jalios:field>

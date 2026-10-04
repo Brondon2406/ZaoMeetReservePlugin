@@ -1,0 +1,17 @@
+<jalios:field name="motif"
+	label='<%= glp("jcmsplugin.zaomeetreserve.modal.add-reservation.field.motif") %>'
+	value='<%= formHandler.getMotif() %>'>
+	<jalios:control settings='<%= new TextFieldSettings() %>' />
+</jalios:field>
+
+<jalios:field name="recurrent"
+	label='<%= glp("jcmsplugin.zaomeetreserve.modal.add-reservation.field.recurring") %>'
+	value='<%= formHandler.isRecurrent() %>'>
+	<jalios:control settings='<%= new BooleanSettings() %>' />
+</jalios:field>
+
+<jalios:field name="checkinEffectue"
+	label='<%= glp("jcmsplugin.zaomeetreserve.modal.add-reservation.field.checkin") %>'
+	value='<%= formHandler.isCheckinEffectue() %>'>
+	<jalios:control settings='<%= new BooleanSettings() %>' />
+</jalios:field>

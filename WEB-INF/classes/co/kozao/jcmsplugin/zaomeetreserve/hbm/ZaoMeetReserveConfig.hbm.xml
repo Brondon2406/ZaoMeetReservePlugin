@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="co.kozao.jcmsplugin.zaomeetreserve.hbm">
+
+    <class name="ZaoMeetReserveConfig" table="zaomeetreserve_config">
+
+        <id name="id" column="id" type="long">
+            <generator class="assigned" />
+        </id>
+
+        <property name="openinghour" column="openinghour" type="long" not-null="false" />
+        <property name="closinghour" column="closinghour" type="long" not-null="false" />
+        <property name="minslotduration" column="minslotduration" type="int" not-null="true" />
+        <property name="maxslotduration" column="maxslotduration" type="int" not-null="true" />
+        <property name="maxbookingdelaydays" column="maxbookingdelaydays" type="int" not-null="true" />
+        <property name="autocancelminutes" column="autocancelminutes" type="int" not-null="true" />
+        <property name="recuring" column="recuring" type="boolean" not-null="true" />
+        <property name="recurringmaxperweek" column="recurringmaxperweek" type="int" not-null="true" />
+        
+
+    </class>
+
+</hibernate-mapping>

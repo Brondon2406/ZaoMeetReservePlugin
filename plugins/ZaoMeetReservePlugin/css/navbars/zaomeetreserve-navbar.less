@@ -1,0 +1,193 @@
+
+@import "../../../../css/jalios/core/init-mixins.less";
+@import "../../../../css/jalios/core/app/jalios-app-variables.less";
+@import "../../../../css/plugin.less";
+
+
+// --------------------------------------------------
+// Variables ZaoMeetReserve
+// --------------------------------------------------
+
+@zaomeetreserve-border: #ddd;
+@zaomeetreserve-bg-card-head: #f7f7f7;
+@zaomeetreserve-muted: #777;
+@zaomeetreserve-text: #333;
+
+
+// --------------------------------------------------
+// Reservation list
+// --------------------------------------------------
+
+.zaomeetreserve-reservation-list {
+
+  // Card
+  .zaomeetreserve-card {
+    margin-bottom: 18px;
+    overflow: hidden;
+
+    background: #fff;
+    border: 1px solid @zaomeetreserve-border;
+    border-radius: 6px;
+  }
+
+
+  // Card header
+  .zaomeetreserve-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 11px 16px;
+
+    background: @zaomeetreserve-bg-card-head;
+    border-bottom: 1px solid @zaomeetreserve-border;
+
+    font-size: 13.5px;
+    font-weight: 700;
+  }
+
+
+  // Table wrapper
+  .zaomeetreserve-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+
+  // Reservation table
+  .zaomeetreserve-reservation-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    font-size: 12.5px;
+
+    th {
+      padding: 10px 16px;
+
+      text-align: left;
+      white-space: nowrap;
+      text-transform: uppercase;
+
+      color: @zaomeetreserve-muted;
+      border-bottom: 1px solid @zaomeetreserve-border;
+
+      font-size: 10.5px;
+    }
+
+    td {
+      padding: 10px 16px;
+
+      vertical-align: middle;
+
+      border-bottom: 1px solid #f0f0f2;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr {
+      cursor: pointer;
+
+      &:hover {
+        background: #fafafb;
+      }
+    }
+  }
+
+
+  // Main value
+  .zaomeetreserve-main-value {
+    color: @zaomeetreserve-text;
+    font-weight: 600;
+  }
+
+
+  // Status
+  .zaomeetreserve-status {
+    display: inline-block;
+  }
+
+
+  // Actions
+  .zaomeetreserve-actions {
+    width: 45px;
+    text-align: right;
+  }
+
+
+  // Row menu button
+  .zaomeetreserve-row-menu-btn {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+
+    background: #fff;
+    border: 1px solid @zaomeetreserve-border;
+    border-radius: 5px;
+
+    color: @zaomeetreserve-muted;
+    cursor: pointer;
+
+    &:hover {
+      background: #f1f1f4;
+    }
+  }
+
+
+  // Dropdown
+  .dropdown-menu {
+    min-width: 180px;
+    padding: 4px 0;
+
+    border: 1px solid @zaomeetreserve-border;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+
+    li {
+      a {
+        padding: 9px 12px;
+
+        color: @zaomeetreserve-text;
+        font-size: 12.5px;
+
+        &:hover {
+          background: #f5f5f7;
+        }
+      }
+    }
+  }
+
+
+  // Pagination
+  .zaomeetreserve-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 16px;
+
+    color: @zaomeetreserve-muted;
+    font-size: 12.5px;
+  }
+
+
+  // Utility
+  .nowrap {
+    white-space: nowrap;
+  }
+
+
+  // Responsive
+  @media (max-width: 900px) {
+
+    .zaomeetreserve-reservation-table {
+      min-width: 850px;
+    }
+
+    .zaomeetreserve-table-wrapper {
+      overflow-x: auto;
+    }
+  }
+}
+

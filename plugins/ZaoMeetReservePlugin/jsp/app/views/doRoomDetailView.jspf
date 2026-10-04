@@ -9,3 +9,4 @@ request.setAttribute("jcmsplugin.zaomeetreserve.listRooms", allRooms);
 request.setAttribute("jcmsplugin.zaomeetreserve.reservation.comeFrom", "app");
 %>
 
+<jalios:include jsp="plugins/ZaoMeetReservePlugin/jsp/flldisplay/room/doRoomFullDisplay.jsp" />

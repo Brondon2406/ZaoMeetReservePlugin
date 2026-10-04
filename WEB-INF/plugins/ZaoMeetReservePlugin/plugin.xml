@@ -447,9 +447,7 @@
     <directory path="docs" />
     <directory path="jsp" />
     <directory path="types" />
-    <!--    
     <directory path="images" />
-    -->
   </public-files>
 </plugin>
 

@@ -1,0 +1,108 @@
+.zaomeetreserve-reservation-list .zaomeetreserve-card {
+  margin-bottom: 18px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+.zaomeetreserve-reservation-list .zaomeetreserve-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 16px;
+  background: #f7f7f7;
+  border-bottom: 1px solid #ddd;
+  font-size: 13.5px;
+  font-weight: 700;
+}
+.zaomeetreserve-reservation-list .zaomeetreserve-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+.zaomeetreserve-reservation-list .zaomeetreserve-reservation-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.zaomeetreserve-reservation-list .zaomeetreserve-reservation-table th {
+  padding: 10px 16px;
+  text-align: left;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #777;
+  border-bottom: 1px solid #ddd;
+  font-size: 10.5px;
+}
+.zaomeetreserve-reservation-list .zaomeetreserve-reservation-table td {
+  padding: 10px 16px;
+  vertical-align: middle;
+  border-bottom: 1px solid #f0f0f2;
+}
+.zaomeetreserve-reservation-list .zaomeetreserve-reservation-table tr:last-child td {
+  border-bottom: none;
+}
+.zaomeetreserve-reservation-list .zaomeetreserve-reservation-table tbody tr {
+  cursor: pointer;
+}
+.zaomeetreserve-reservation-list .zaomeetreserve-reservation-table tbody tr:hover {
+  background: #fafafb;
+}
+.zaomeetreserve-reservation-list .zaomeetreserve-main-value {
+  color: #333;
+  font-weight: 600;
+}
+.zaomeetreserve-reservation-list .zaomeetreserve-status {
+  display: inline-block;
+}
+.zaomeetreserve-reservation-list .zaomeetreserve-actions {
+  width: 45px;
+  text-align: right;
+}
+.zaomeetreserve-reservation-list .zaomeetreserve-row-menu-btn {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #777;
+  cursor: pointer;
+}
+.zaomeetreserve-reservation-list .zaomeetreserve-row-menu-btn:hover {
+  background: #f1f1f4;
+}
+.zaomeetreserve-reservation-list .dropdown-menu {
+  min-width: 180px;
+  padding: 4px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+.zaomeetreserve-reservation-list .dropdown-menu li a {
+  padding: 9px 12px;
+  color: #333;
+  font-size: 12.5px;
+}
+.zaomeetreserve-reservation-list .dropdown-menu li a:hover {
+  background: #f5f5f7;
+}
+.zaomeetreserve-reservation-list .zaomeetreserve-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 16px;
+  color: #777;
+  font-size: 12.5px;
+}
+.zaomeetreserve-reservation-list .nowrap {
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .zaomeetreserve-reservation-list .zaomeetreserve-reservation-table {
+    min-width: 850px;
+  }
+  .zaomeetreserve-reservation-list .zaomeetreserve-table-wrapper {
+    overflow-x: auto;
+  }
+}
+/*# sourceMappingURL=zaomeetreserve-navbar.css.map */

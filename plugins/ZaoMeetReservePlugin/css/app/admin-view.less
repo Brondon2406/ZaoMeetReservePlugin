@@ -1,0 +1,986 @@
+@import "../../../../css/jalios/core/init-mixins.less";
+@import "../../../../css/jalios/core/app/jalios-app-variables.less";
+
+// Hook for JCMS
+@import "../../../../css/plugin.less";
+
+/* ============================================================
+   ZaoMeetReserve - Variables
+   ============================================================ */
+
+@app-color-zaomeetreserve: #1E9BE0;
+
+@zaomeetreserve-color-light: lighten(@app-color-zaomeetreserve, 45%);
+@zaomeetreserve-color-dark: darken(@app-color-zaomeetreserve, 10%);
+
+@zaomeetreserve-border: #E4E4E8;
+@zaomeetreserve-muted: #8A8A94;
+@zaomeetreserve-text: #1F1F26;
+@zaomeetreserve-card-head: #F7F7F7;
+
+/* Aliases used by the existing administration styles */
+@text: @zaomeetreserve-text;
+@muted: @zaomeetreserve-muted;
+@border: @zaomeetreserve-border;
+@bg-card-head: @zaomeetreserve-card-head;
+
+
+/* ============================================================
+   Main application scope
+   ============================================================ */
+
+.co-zaomeetreserve-app-body,
+.zaomeetreserve-scope {
+
+	/* ============================================================
+	   Pager header
+	   ============================================================ */
+   .zaomeetreserve-card-head {
+     padding: 12px 16px;
+     background: @zaomeetreserve-card-head;
+     border-bottom: 1px solid @zaomeetreserve-border;
+   }
+
+  .zaomeetreserve-full-page-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18px;
+
+    h2 {
+      margin: 0 0 4px;
+      font-size: 18px;
+      font-weight: 700;
+      color: @zaomeetreserve-text;
+    }
+
+    p {
+      margin: 0;
+      font-size: 12.5px;
+      color: @zaomeetreserve-muted;
+      max-width: 640px;
+    }
+  }
+
+  .zaomeetreserve-back-btn {
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 12.5px;
+    color: @zaomeetreserve-muted;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      color: @app-color-zaomeetreserve;
+    }
+  }
+  
+  /* ==========================================================
+           Le panel Bootstrap ne doit pas couper le menu
+     ========================================================== */
+
+  .panel { overflow: visible; }
+
+  /* ==========================================================
+          En-tête du panel plus proche de la maquette
+     ========================================================== */
+  .panel > .panel-heading {
+    font-weight: 700;
+    background: @zaomeetreserve-card-head;
+  }
+	
+  /* ==========================================================
+         Alignement vertical des cellules et menu à droite
+     ========================================================== */
+ 
+  .table > tbody > tr > td { vertical-align: middle; }
+  .table > thead > tr > th {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: @zaomeetreserve-muted;
+  }
+	 
+  /* ==========================================================
+       Champs du filtre : occupent toute la colonne
+     ========================================================== */
+  .zaomeetreserve-scope form .form-control { width: 100%; }
+  .zaomeetreserve-scope form.form-vertical {
+    .form-group { display: block; }
+    .control-label, label {
+      display: block;
+      width: 100%;
+      float: none;
+      text-align: left;
+      margin-bottom: 4px;
+    }
+    .form-control, select, input[type="text"] { width: 100%; }
+  }
+
+  /* ==========================================================
+     Administration hub
+     ========================================================== */
+
+  .zaomeetreserve-hub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+    .zaomeetreserve-hc-ico-lg {
+		font-size : 2px;
+	}
+    .zaomeetreserve-admin-hub {
+
+    .full-page-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 18px;
+
+      h2 {
+        font-size: 19px;
+        font-weight: 700;
+        color: @text;
+        margin: 0 0 4px;
+      }
+
+      p {
+        color: @muted;
+        font-size: 13px;
+        margin: 0;
+      }
+    }
+
+    .hub-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+
+      @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hub-card {
+      display: block;
+      background: #fff;
+      border: 1px solid @border;
+      border-radius: 8px;
+      padding: 18px;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow .15s, transform .15s;
+
+      &:hover {
+        box-shadow: 0 4px 14px rgba(0, 0, 0, .07);
+        transform: translateY(-1px);
+        text-decoration: none;
+      }
+
+      .hc-ico {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      .hc-title {
+        font-weight: 700;
+        font-size: 14px;
+        color: @text;
+        margin-bottom: 4px;
+      }
+
+      .hc-desc {
+        font-size: 12.5px;
+        color: @muted;
+        margin-bottom: 12px;
+        line-height: 1.4;
+      }
+
+      .hc-actor {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .3px;
+        color: @app-color-zaomeetreserve;
+        background: fade(@app-color-zaomeetreserve, 10%);
+        padding: 3px 8px;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .back-btn {
+    background: none;
+    border: none;
+    color: @app-color-zaomeetreserve;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 14px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+
+  /* ==========================================================
+     Room list
+     ========================================================== */
+
+  .zaomeetreserve-room-list {
+
+    .zaomeetreserve-card {
+      background: #fff;
+      border: 1px solid @border;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .zaomeetreserve-card-head {
+      background: @bg-card-head;
+      padding: 11px 16px;
+      font-size: 13.5px;
+      font-weight: 700;
+      border-bottom: 1px solid @border;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+	  font-size: 13px;
+	  font-weight: 700;
+	  color: @zaomeetreserve-text;
+	  padding: 0 0 14px;
+	  &.zaomeetreserve-card-head-flat {
+	    border: none;
+		}
+    }
+
+    .zaomeetreserve-filter-form {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+      padding: 14px 16px;
+      flex-wrap: wrap;
+    }
+  }
+
+
+  /* ==========================================================
+     General configuration
+     ========================================================== */
+
+  .zaomeetreserve-card .card-body {
+
+    .form-row {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 4px;
+
+      &.cols3 > .field {
+        flex: 1;
+      }
+
+      @media (max-width: 700px) {
+        flex-direction: column;
+      }
+    }
+
+    .field {
+      margin-bottom: 14px;
+
+      label {
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .3px;
+        color: @muted;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+
+      input,
+      select {
+        width: 100%;
+        border: 1px solid @border;
+        border-radius: 5px;
+        padding: 8px 10px;
+        font-size: 13px;
+        color: @text;
+
+        &:focus {
+          outline: none;
+          border-color: @app-color-zaomeetreserve;
+          box-shadow: 0 0 0 3px fade(@app-color-zaomeetreserve, 15%);
+        }
+      }
+    }
+
+    .card-head {
+      font-size: 13px;
+      font-weight: 700;
+      color: @text;
+    }
+
+    .btn-primary {
+      background: @app-color-zaomeetreserve;
+      border-color: @app-color-zaomeetreserve;
+
+      &:hover {
+        background: darken(@app-color-zaomeetreserve, 8%);
+      }
+    }
+  }
+
+  .alert-success {
+    background: #E7F7EE;
+    border: 1px solid #8FD9AE;
+    color: #1E7A45;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    margin-bottom: 14px;
+  }
+
+
+  /* ==========================================================
+     Generic cards
+     ========================================================== */
+
+  .zaomeetreserve-hub-card {
+    display: block;
+    border: 1px solid @zaomeetreserve-border;
+    border-radius: 10px;
+    padding: 20px;
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .15s, box-shadow .15s;
+    cursor: pointer;
+
+    &:hover {
+      border-color: @app-color-zaomeetreserve;
+      box-shadow: 0 2px 10px fade(@app-color-zaomeetreserve, 12%);
+    }
+
+    .zaomeetreserve-hc-ico {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .zaomeetreserve-hc-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: @zaomeetreserve-text;
+      margin-bottom: 6px;
+    }
+
+    .zaomeetreserve-hc-desc {
+      font-size: 12px;
+      color: @zaomeetreserve-muted;
+      line-height: 1.5;
+    }
+  }
+
+  .zaomeetreserve-card {
+    border: 1px solid @zaomeetreserve-border;
+    border-radius: 10px;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .zaomeetreserve-card-body {
+    padding: 18px 20px;
+  }
+
+
+    &.zaomeetreserve-card-head-sep {
+      border-top: 1px solid @zaomeetreserve-border;
+      margin-top: 6px;
+      padding-top: 18px;
+    }
+  }
+
+
+  /* ==========================================================
+     Filters / search
+     ========================================================== */
+
+  .zaomeetreserve-filter-bar {
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+
+  .zaomeetreserve-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    label {
+      font-size: 11px;
+      color: @zaomeetreserve-muted;
+      font-weight: 600;
+    }
+
+    input,
+    select {
+      border: 1px solid @zaomeetreserve-border;
+      border-radius: 6px;
+      padding: 7px 10px;
+      font-size: 12.5px;
+      min-width: 180px;
+    }
+  }
+
+  .zaomeetreserve-search-box input {
+    min-width: 240px;
+  }
+
+  .zaomeetreserve-visually-hidden {
+    visibility: hidden;
+  }
+
+
+  /* ==========================================================
+     Forms
+     ========================================================== */
+
+  .zaomeetreserve-form-row {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 6px;
+
+    &.zaomeetreserve-cols3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 850px) {
+    .zaomeetreserve-form-row.zaomeetreserve-cols3 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+  /* ==========================================================
+     Table
+     ========================================================== */
+
+  .zaomeetreserve-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+
+    th,
+    td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid @zaomeetreserve-border;
+    }
+
+    th {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: @zaomeetreserve-muted;
+      font-weight: 700;
+    }
+  }
+
+  .zaomeetreserve-empty-row {
+    text-align: center !important;
+    color: @zaomeetreserve-muted;
+    padding: 24px !important;
+  }
+
+
+  /* ==========================================================
+     Status badges
+     ========================================================== */
+
+  .zaomeetreserve-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+
+    &.zaomeetreserve-badge-green {
+      background: #E2F6E9;
+      color: #1E7A46;
+    }
+
+    &.zaomeetreserve-badge-orange {
+      background: #FCEBD2;
+      color: #B5690A;
+    }
+
+    &.zaomeetreserve-badge-red {
+      background: #FBEBE9;
+      color: #9C3A32;
+    }
+  }
+  
+  /* ==========================================================
+         Dashboard
+     ========================================================== */
+    .zaomeetreserve-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 18px;
+      @media (max-width: 750px) { grid-template-columns: 1fr; }
+    }
+    .zaomeetreserve-stat-card {
+      padding: 16px;
+      .zaomeetreserve-stat-label { font-size: 11.5px; color: @zaomeetreserve-muted; }
+      .zaomeetreserve-stat-value { font-size: 24px; font-weight: 800; color: @app-color-zaomeetreserve; }
+      .zaomeetreserve-stat-value-sm { font-size: 18px; }
+    }
+
+    .zaomeetreserve-dashboard-charts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      @media (max-width: 850px) { grid-template-columns: 1fr; }
+    }
+    .zaomeetreserve-chart-title { font-size: 13px; font-weight: 700; color: @zaomeetreserve-text; margin-bottom: 12px; }
+
+    .zaomeetreserve-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 12px;
+      color: @zaomeetreserve-text;
+    }
+    .zaomeetreserve-bar-label { width: 110px; flex-shrink: 0; }
+    .zaomeetreserve-bar-track {
+      flex: 1;
+      background: @zaomeetreserve-color-light;
+      border-radius: 6px;
+      height: 18px;
+      overflow: hidden;
+    }
+    .zaomeetreserve-bar-fill {
+      background: @app-color-zaomeetreserve;
+      height: 100%;
+      color: #fff;
+      font-size: 10.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 6px;
+      min-width: 26px;
+      border-radius: 6px;
+    }
+
+
+  /* ==========================================================
+      Secondary Button
+     ========================================================== */
+
+    .zaomeetreserve-btn-ghost {
+      background: #fff;
+      border: 1px solid @zaomeetreserve-border;
+      color: @zaomeetreserve-text;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 12.5px;
+      cursor: pointer;
+      &:hover { border-color: @app-color-zaomeetreserve; color: @app-color-zaomeetreserve; }
+    }
+
+  /* ==========================================================
+     Row context menu
+     ========================================================== */
+
+  .zaomeetreserve-row-menu {
+    position: relative;
+    display: inline-block;
+
+    .zaomeetreserve-row-menu-btn {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 16px;
+      color: @zaomeetreserve-muted;
+      padding: 4px 8px;
+      border-radius: 4px;
+
+      &:hover {
+        background: @zaomeetreserve-color-light;
+      }
+    }
+
+    .zaomeetreserve-row-menu-list {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      z-index: 20;
+      background: #fff;
+      border: 1px solid @zaomeetreserve-border;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .08);
+      min-width: 160px;
+      overflow: hidden;
+
+      button {
+        display: block;
+        width: 100%;
+        text-align: left;
+        border: none;
+        background: none;
+        padding: 9px 14px;
+        font-size: 12.5px;
+        cursor: pointer;
+
+        &:hover {
+          background: @zaomeetreserve-color-light;
+        }
+
+        &.zaomeetreserve-danger {
+          color: #C0392B;
+        }
+      }
+    }
+
+    &.zaomeetreserve-open .zaomeetreserve-row-menu-list {
+      display: block;
+    }
+  }
+
+
+  /* ==========================================================
+     Pagination
+     ========================================================== */
+
+  .zaomeetreserve-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    font-size: 12.5px;
+  }
+
+  .zaomeetreserve-pg-num,
+  .zaomeetreserve-pg-nav-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: @zaomeetreserve-text;
+  }
+
+  .zaomeetreserve-pg-nav-btn {
+    border: 1px solid @zaomeetreserve-border;
+    background: #fff;
+  }
+
+  .zaomeetreserve-pg-num {
+    color: @zaomeetreserve-muted;
+  }
+
+  .zaomeetreserve-pg-num-active {
+    background: @app-color-zaomeetreserve;
+    color: #fff;
+    font-weight: 700;
+  }
+  
+  /* ==========================================================
+  	   Timeline (vue jour / semaine) : réservation déjà passée
+  	 ========================================================== */
+      
+       .zaomeetreserve-tl-block-past {
+         background: @zaomeetreserve-muted !important;
+         color: #fff;
+         opacity: 0.65;
+       }
+      
+       .zaomeetreserve-dot-past {
+         background: @zaomeetreserve-muted;
+       }
+      
+  	 /* ==========================================================
+  	      Vue mois : jour deja passe
+  	    ========================================================== */
+       .zaomeetreserve-cal-cell-past {
+         background: #F2F2F4;
+         color: @zaomeetreserve-muted;
+      
+         .zaomeetreserve-cal-cell-day {
+           color: @zaomeetreserve-muted;
+         }
+      
+         &.zaomeetreserve-cal-cell-has-res {
+           background: #ECECEE;
+           border-color: @zaomeetreserve-border;
+         }
+       }
+        
+  	 /* ==========================================================
+  	      Tableaux "Mes réservations" / "Toutes les réservations"
+  	    ========================================================== */
+       .zaomeetreserve-row-past {
+         color: @zaomeetreserve-muted;
+      
+         td {
+           color: @zaomeetreserve-muted;
+         }
+       }
+  
+
+
+/* ==========================================================
+     Sub Tab
+   ========================================================== */
+  .zaomeetreserve-subtabs {
+    display: flex;
+    gap: 6px;
+    border-bottom: 1px solid @zaomeetreserve-border;
+    margin-bottom: 16px;
+
+    a {
+      padding: 8px 14px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: @zaomeetreserve-muted;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+
+      &:hover { color: @app-color-zaomeetreserve; }
+      &.zaomeetreserve-active { color: @app-color-zaomeetreserve; border-bottom-color: @app-color-zaomeetreserve; }
+    }
+  }
+
+
+/* ==========================================================
+		    Nvigation
+   ========================================================== */
+   
+   .zaomeetreserve-cal-nav-bar {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       gap: 14px;
+       margin-bottom: 14px;
+
+       input[type="date"], input[type="month"] {
+         border: 1px solid @zaomeetreserve-border;
+         border-radius: 6px;
+         padding: 6px 10px;
+         font-size: 12.5px;
+       }
+     }
+     .zaomeetreserve-cal-nav-btn {
+       border: 1px solid @zaomeetreserve-border;
+       background: #fff;
+       border-radius: 6px;
+       padding: 7px 12px;
+       font-size: 12.5px;
+       color: @zaomeetreserve-text;
+       text-decoration: none;
+       cursor: pointer;
+       &:hover { border-color: @app-color-zaomeetreserve; color: @app-color-zaomeetreserve; }
+     }
+	 
+	 .badge {
+	   &.zaomeetreserve-status-available {
+	     background: #E2F6E9 !important;
+	     color: #1E7A46 !important;
+	   }
+	   &.zaomeetreserve-status-occupied {
+	     background: #FCEBD2 !important;
+	     color: #B5690A !important;
+	   }
+	   &.zaomeetreserve-status-maintenance {
+	     background: #FBEBE9 !important;
+	     color: #9C3A32 !important;
+	   }
+	 }
+
+
+	/* ==========================================================
+		    TimeSlot
+	   ========================================================== */
+   
+   .zaomeetreserve-timeline-hours {
+       display: flex;
+       margin-left: 140px;
+       border-bottom: 1px solid @zaomeetreserve-border;
+       padding-bottom: 6px;
+       margin-bottom: 10px;
+     }
+     .zaomeetreserve-tl-hour {
+       flex: 1;
+       font-size: 11px;
+       color: @zaomeetreserve-muted;
+     }
+     .zaomeetreserve-timeline-row {
+       display: flex;
+       align-items: center;
+       margin-bottom: 10px;
+       position: relative;
+     }
+     .zaomeetreserve-tl-label {
+       width: 140px;
+       flex-shrink: 0;
+       font-size: 12.5px;
+       font-weight: 600;
+     }
+     .zaomeetreserve-tl-track {
+       flex: 1;
+       position: relative;
+       height: 30px;
+       border-radius: 4px;
+       background-color: #FAFAFB;
+       background-image: repeating-linear-gradient(90deg, #F3F4F6, #F3F4F6 1px, transparent 1px, transparent calc(100% / 10));
+     }
+     .zaomeetreserve-tl-block {
+       position: absolute;
+       top: 3px;
+       bottom: 3px;
+       border-radius: 4px;
+       font-size: 10.5px;
+       color: #3A3A3A;
+       display: flex;
+       align-items: center;
+       padding-left: 6px;
+       overflow: hidden;
+       white-space: nowrap;
+
+       &.zaomeetreserve-tl-block-confirmed { background: #8FD9AE; }
+       &.zaomeetreserve-tl-block-pending   { background: #F6C77A; }
+       &.zaomeetreserve-tl-block-off       { background: #C9C9CF; }
+     }
+     .zaomeetreserve-tl-now-line {
+       position: absolute;
+       top: -2px;
+       bottom: -2px;
+       width: 0;
+       border-left: 2px dashed @zaomeetreserve-color-dark;
+     }
+     .zaomeetreserve-slot-legend {
+       display: flex;
+       gap: 16px;
+       align-items: center;
+       margin-top: 14px;
+       font-size: 11.5px;
+       color: @zaomeetreserve-muted;
+
+       span { display: flex; align-items: center; gap: 6px; }
+       i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; }
+     }
+     .zaomeetreserve-dot-confirmed { background: #8FD9AE; }
+     .zaomeetreserve-dot-pending   { background: #F6C77A; }
+     .zaomeetreserve-dot-off       { background: #C9C9CF; }
+
+	/* ==========================================================
+	    Calendrier
+	   ========================================================== */
+ .zaomeetreserve-cal-grid {
+     display: grid;
+     grid-template-columns: repeat(7, 1fr);
+     gap: 6px;
+   }
+   .zaomeetreserve-cal-head-row { margin-bottom: 6px; }
+   .zaomeetreserve-cal-head {
+     text-align: center;
+     font-size: 11px;
+     font-weight: 700;
+     color: @zaomeetreserve-muted;
+     text-transform: uppercase;
+     padding-bottom: 4px;
+   }
+   .zaomeetreserve-cal-cell {
+     min-height: 64px;
+     border: 1px solid @zaomeetreserve-border;
+     border-radius: 6px;
+     padding: 6px 8px;
+     font-size: 11.5px;
+
+     &.zaomeetreserve-cal-cell-empty { border: none; background: transparent; }
+     &.zaomeetreserve-cal-cell-has-res {
+       cursor: pointer;
+       background: @zaomeetreserve-color-light;
+       border-color: @app-color-zaomeetreserve;
+       &:hover { box-shadow: 0 2px 8px fade(@app-color-zaomeetreserve, 15%); }
+     }
+   }
+   .zaomeetreserve-cal-cell-day { font-weight: 700; color: @zaomeetreserve-text; margin-bottom: 4px; }
+   .zaomeetreserve-cal-cell-count {
+     display: inline-block;
+     background: @app-color-zaomeetreserve;
+     color: #fff;
+     border-radius: 8px;
+     padding: 1px 6px;
+     font-size: 10px;
+     font-weight: 700;
+   }
+    
+
+  /* ==========================================================
+     Buttons
+     ========================================================== */
+
+  .zaomeetreserve-btn-primary {
+    background: @app-color-zaomeetreserve;
+    border: 1px solid @app-color-zaomeetreserve;
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      background: @zaomeetreserve-color-dark;
+    }
+  }
+
+  .zaomeetreserve-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+
+    &.zaomeetreserve-footer-sep {
+      border-top: 1px solid @zaomeetreserve-border;
+      margin-top: 10px;
+      padding-top: 18px;
+    }
+  }
+
+
+
+/* ============================================================
+   Delete confirmation modal
+   This modal is outside .zaomeetreserve-scope because
+   Jalios renders it outside the application body.
+   ============================================================ */
+
+.zaomeetreserve-red-modal {
+
+  .modal-content {
+
+    .modal-header {
+      background-color: #D9534F;
+      border-color: #D9534F;
+    }
+
+    .modal-footer .btn-primary {
+      background-color: #D9534F;
+      border-color: #D9534F;
+
+      &:active {
+        background-color: #D9534F;
+        outline: none !important;
+      }
+    }
+  }
+}

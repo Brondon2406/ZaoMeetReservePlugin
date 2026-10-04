@@ -1,0 +1,10 @@
+<%@page import="co.kozao.jcmsplugin.zaomeetreserve.ZaoMeetReserveManager"%>
+<%@page import="generated.Room"%>
+<%@page import="java.util.List"%>
+<%
+List<Room> rooms = ZaoMeetReserveManager.getInstance().getAllRooms();
+
+request.setAttribute("jcmsplugin.zaomeetreserve.appHandler", appHandler);
+request.setAttribute("jcmsplugin.zaomeetreserve.roomsList", rooms);
+%>
+<jalios:include jsp="plugins/ZaoMeetReservePlugin/jsp/displayingTemplate/doDisplayingRoomTemplate.jsp" />

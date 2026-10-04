@@ -1,0 +1,18 @@
+<div class="zaomeetreserve-admin-home">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="<%= appHandler.getViewUrl("ADMIN_ROOMS") %>" class="zaomeetreserve-admin-card" data-jalios-action="ajax-refresh">
+                <jalios:icon src="glyph: icomoon-office" />
+                <h3><%= glp("jcmsplugin.zaomeetreserve.admin.rooms.title") %></h3>
+                <p><%= glp("jcmsplugin.zaomeetreserve.admin.rooms.card.description") %></p>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="<%= appHandler.getViewUrl("ADMIN_CONFIG") %>" class="zaomeetreserve-admin-card" data-jalios-action="ajax-refresh">
+                <jalios:icon src="glyph: icomoon-wrench" />
+                <h3><%= glp("jcmsplugin.zaomeetreserve.admin.config.title") %></h3>
+                <p><%= glp("jcmsplugin.zaomeetreserve.admin.config.card.description") %></p>
+            </a>
+        </div>
+    </div>
+</div>
